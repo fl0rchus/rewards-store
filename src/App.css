@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  color: #2a2a2a;
+  background-color: #f5f5f3;
+  height: 100%;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  margin: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/*NAVBAR*/
+.navbar {
+  height: 80px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
   align-items: center;
+  background-color: #fffffe;
+}
+.btns-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
-
-.App-link {
-  color: #61dafb;
+.btn {
+  color: #ffffff;
+  font-weight: 500;
+  margin: 0 20px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn:hover {
+  color: #ffa900;
+  border: 1px solid #ffa900;
+  background-color: #ffffff;
+}
+.modal-body {
+  padding: 2.5rem;
+}
+.btn-success {
+  background-color: #b23cfd;
+  border-color: #b23cfd;
+}
+.btn-success:hover {
+  background-color: #8f2fca;
+  border-color: #8f2fca;
+  color: #ffffff;
+}
+/*HEADER TITLE*/
+.jumbotron {
+  background: linear-gradient(
+    90deg,
+    rgba(245, 175, 25, 1) 0%,
+    rgba(241, 39, 17, 1) 60%
+  );
+  margin-bottom: 0;
+  color: #ffffff;
+  padding: 7rem 2rem;
+}
+/*MODAL CONTAINER*/
+.modal_container {
+  position: fixed;
+  top: 20%;
+  left: 40%;
+}
+.modal-dialog {
+  box-shadow: 0px 0px 16px -8px #000000;
+}
+/*CONTAINER*/
+.card {
+  background-color: #ffffff;
+  height: fit-content;
+}
+.btn-card {
+  background-color: #3d348b;
+  margin: 1em auto 0;
+  width: 50%;
+}
+.btn-card:hover {
+  background: #ffffff;
+  border: 1px solid #3d348b;
+  color: #3d348b;
+}
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.card-subtitle {
+  font-size: 16px;
+}
+.card-text {
+  font-size: 20px;
+  font-weight: 600;
+}
+.cost {
+  display: flex;
+  align-items: center;
 }
