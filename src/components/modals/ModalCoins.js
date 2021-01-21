@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import MoreCoins from "../MoreCoins";
 import { createPortal } from "react-dom";
 
 const modalElement = document.getElementById("modal-addCoins");
 
 function ModalCoins({ isOpen, hide }) {
-  const [updated, setUpdated] = useState(false);
   return isOpen
     ? createPortal(
         <>
@@ -19,17 +18,7 @@ function ModalCoins({ isOpen, hide }) {
                   </button>
                 </div>
                 <div className="modal-body">
-                  <MoreCoins onClick={() => setUpdated(!updated)} />
-                  {updated ? "Points Updated" : null}
-                </div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-success"
-                    onClick={hide}
-                  >
-                    Save changes
-                  </button>
+                  <MoreCoins />
                 </div>
               </div>
             </div>

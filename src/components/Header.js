@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import coin from "../icons/coin.svg";
 import styled from "styled-components";
 import getUser from "../helpers/getUser";
 import ModalCoins from "./modals/ModalCoins";
 import useModal from "../hooks/useModal";
+import { userContext } from "../App";
 
 const DivActions = styled.div`
   font-weight: 300;
@@ -33,28 +34,17 @@ const DivCoins = styled.div`
 `;
 
 function Header() {
+  const { userName, userPoints, setUserName, setUserPoints } = useContext(
+    userContext
+  );
+
   const { isOpen, toggle } = useModal();
-  const [user, setUser] = useState(null);
-  const [userName, setUserName] = useState("");
-  const [userPoints, setUserPoints] = useState("");
 
   useEffect(() => {
-    if (!userName) {
-      getUser().then(
-        (data) => setUserName(data.name) && setUserPoints(data.points)
-      );
-    } else {
-      return null;
-    }
-  }, [userName]);
-
-  useEffect(() => {
-    // if (!userPoints) {
-    getUser().then((data) => setUserPoints(data.points));
-    // } else {
-    //   return null;
-    // }
-  }, [userPoints]);
+    getUser().then(
+      (data) => (setUserName(data.name), setUserPoints(data.points))
+    );
+  }, []);
 
   return (
     <>
@@ -80,7 +70,7 @@ function Header() {
           </DivActions>
         </div>
         <DivUser>
-          {userName != "" ? userName : ""}
+          {userName != null ? userName : ""}
           <DivCoins>
             {userPoints != "" ? userPoints : ""}
             <img src={coin} alt="Coin" />

@@ -8,15 +8,16 @@ export default function ProductContainer() {
   useEffect(() => {
     getProducts().then((data) => {
       setProducts(data);
-      console.log(products);
     });
   }, []);
 
   return (
-    <div className="cards-container">
-      {products.map((product, index) => {
-        return <Product {...product} key={index} />;
-      })}
-    </div>
+    <>
+      <div className="cards-container">
+        {products.map((product, index) => {
+          return <Product {...product} key={index} />;
+        })}
+      </div>
+    </>
   );
 }

@@ -6,7 +6,7 @@ export const HeaderTitle = () => {
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">Rewards Store</h1>
-          <p class="lead">Category</p>
+          <p class="lead">Electronics</p>
         </div>
       </div>
     </>
