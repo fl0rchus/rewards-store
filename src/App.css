@@ -82,12 +82,10 @@ p {
 }
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  padding: 50px;
-  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+  padding: 50px 50px 30px;
   justify-content: center;
-  flex-wrap: wrap;
 }
 .card-title {
   font-size: 20px;

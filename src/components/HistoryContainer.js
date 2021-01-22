@@ -1,36 +1,41 @@
 import React, { useEffect, useState } from "react";
-import getHistory from "../helpers/getHistory";
-import usePagination from "../hooks/usePagination";
+import { urlHistory, headers } from "../helpers/variables";
+import HistoryComponent from "./HistoryComponent";
+import PaginationComponent from "./PaginationComponent";
 
 function HistoryContainer() {
   const [history, setHistory] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(200);
 
   useEffect(() => {
-    getHistory().then((data) => setHistory(data));
+    const fetchHistory = async () => {
+      setLoading(true);
+      const res = await fetch(urlHistory, { method: "GET", headers });
+      const data = await res.json();
+      setHistory(data);
+      setLoading(false);
+    };
+    fetchHistory();
   }, []);
 
+  //Current history
+  const indexOfLastHistory = currentPage * itemsPerPage;
+  const indexOfFirstHistory = indexOfLastHistory - itemsPerPage;
+  const currentHistory = history.slice(indexOfFirstHistory, indexOfLastHistory);
+
+  //Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
-    <div className="container mt-5">
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Product name</th>
-            <th scope="col">Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          {history.map((item) => {
-            return (
-              <tr scope="row">
-                <td>{item.productId}</td>
-                <td>{item.name}</td>
-                <td>{item.cost}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <div className="container">
+      <HistoryComponent history={currentHistory} loading={loading} />
+      <PaginationComponent
+        totalHistory={history.length}
+        itemsPerPage={itemsPerPage}
+        paginate={paginate}
+      />
     </div>
   );
 }

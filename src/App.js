@@ -12,10 +12,18 @@ export const userContext = createContext();
 function App() {
   const [userName, setUserName] = useState("");
   const [userPoints, setUserPoints] = useState("");
+  const [idProduct, setIdProduct] = useState("");
 
   return (
     <userContext.Provider
-      value={{ userName, setUserName, userPoints, setUserPoints }}
+      value={{
+        userName,
+        setUserName,
+        userPoints,
+        setUserPoints,
+        idProduct,
+        setIdProduct,
+      }}
     >
       {/* <Header />
       <HeaderTitle />

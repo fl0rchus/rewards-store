@@ -25,7 +25,6 @@ const History = () => {
       <Header />
       <HeaderTitle subtitle="Redeem History" />
       <HistoryContainer />
-      {/* <Link to="/">Home</Link> */}
     </div>
   );
 };

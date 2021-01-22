@@ -7,10 +7,9 @@ import getUser from "../../helpers/getUser";
 
 const element = document.getElementById("modal-addCoins");
 
-export const ModalRedeem = ({ isOpen, hide, idProduct }) => {
+export const ModalRedeem = ({ isOpen, hide }) => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const { userPoints, setUserPoints } = useContext(userContext);
 
   return isOpen
     ? createPortal(
@@ -32,7 +31,7 @@ export const ModalRedeem = ({ isOpen, hide, idProduct }) => {
                       type="button"
                       onClick={() => {
                         try {
-                          postRedeem(idProduct)
+                          postRedeem()
                             .then(
                               (data) => setMessage(data.message),
                               setLoading(true)
