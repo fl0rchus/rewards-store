@@ -1,8 +1,11 @@
+import { Router } from "@reach/router";
 import React, { createContext, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import { HeaderTitle } from "./components/HeaderTitle";
 import ProductCointainer from "./components/ProductContainer";
+import History from "./pages/History";
+import Home from "./pages/Home";
 
 export const userContext = createContext();
 
@@ -14,9 +17,13 @@ function App() {
     <userContext.Provider
       value={{ userName, setUserName, userPoints, setUserPoints }}
     >
-      <Header />
+      {/* <Header />
       <HeaderTitle />
-      <ProductCointainer />
+      <ProductCointainer /> */}
+      <Router>
+        <History path="/redeem-history" />
+        <Home path="/" />
+      </Router>
     </userContext.Provider>
   );
 }

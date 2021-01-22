@@ -10,3 +10,5 @@ export const urlUser = "https://coding-challenge-api.aerolab.co/user/me";
 export const urlCoins = "https://coding-challenge-api.aerolab.co/user/points";
 export const urlProducts = "https://coding-challenge-api.aerolab.co/products";
 export const urlRedeem = "https://coding-challenge-api.aerolab.co/redeem";
+export const urlHistory =
+  "https://coding-challenge-api.aerolab.co/user/history";

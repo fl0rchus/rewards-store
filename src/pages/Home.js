@@ -1,15 +1,15 @@
 import React from "react";
 import { HeaderTitle } from "../components/HeaderTitle";
-import { Header } from "../components/Header";
+import Header from "../components/Header";
 import ProductContainer from "../components/ProductContainer";
 
-const pageHome = () => {
+const Home = () => {
   return (
-    <div>
+    <>
       <Header />
-      <HeaderTitle />
+      <HeaderTitle subtitle="Electronics" />
       <ProductContainer />
-    </div>
+    </>
   );
 };
-export default pageHome;
+export default Home;

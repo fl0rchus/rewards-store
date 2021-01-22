@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import coin from "../icons/coin.svg";
 import styled from "styled-components";
 import getUser from "../helpers/getUser";
 import ModalCoins from "./modals/ModalCoins";
 import useModal from "../hooks/useModal";
 import { userContext } from "../App";
+import { Link } from "@reach/router";
 
 const DivActions = styled.div`
   font-weight: 300;
@@ -61,13 +62,15 @@ function Header() {
             Add more coins
           </DivActions>
           <ModalCoins isOpen={isOpen} hide={toggle} />
-          <DivActions>
-            <i
-              class="fas fa-history history"
-              style={{ color: "#ff8800", marginRight: 5 }}
-            ></i>
-            Redeem history
-          </DivActions>
+          <Link to="/redeem-history" style={{ color: "#2a2a2a" }}>
+            <DivActions>
+              <i
+                class="fas fa-history history"
+                style={{ color: "#ff8800", marginRight: 5 }}
+              ></i>
+              Redeem history
+            </DivActions>
+          </Link>
         </div>
         <DivUser>
           {userName != null ? userName : ""}
