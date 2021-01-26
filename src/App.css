@@ -73,7 +73,7 @@ p {
 .btn-card {
   background-color: #3d348b;
   margin: 1em auto 0;
-  width: 50%;
+  /* width: 50%; */
 }
 .btn-card:hover {
   background: #ffffff;

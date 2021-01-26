@@ -28,7 +28,7 @@ export default function MoreCoins() {
         </button>
         <button
           onClick={() =>
-            postCoins(1000)
+            postCoins(5000)
               .then(
                 (data) => (
                   setMessage(data.message),
@@ -44,7 +44,7 @@ export default function MoreCoins() {
         </button>
         <button
           onClick={() =>
-            postCoins(1000)
+            postCoins(7500)
               .then(
                 (data) => (
                   setMessage(data.message),

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import postRedeem from "../../helpers/postRedeem";
 import { Spinner } from "../Spinner";
@@ -7,9 +7,11 @@ import getUser from "../../helpers/getUser";
 
 const element = document.getElementById("modal-addCoins");
 
-export const ModalRedeem = ({ isOpen, hide }) => {
+export const ModalRedeem = ({ isOpen, hide, id, producto }) => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const { userPoints, setUserPoints } = useContext(userContext);
 
   return isOpen
     ? createPortal(
@@ -19,7 +21,14 @@ export const ModalRedeem = ({ isOpen, hide }) => {
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title">Redeem</h5>
-                  <button type="button" className="close" onClick={hide}>
+                  <button
+                    type="button"
+                    className="close"
+                    onClick={() => {
+                      hide();
+                      setMessage("");
+                    }}
+                  >
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -31,14 +40,18 @@ export const ModalRedeem = ({ isOpen, hide }) => {
                       type="button"
                       onClick={() => {
                         try {
-                          postRedeem()
+                          postRedeem(id)
                             .then(
-                              (data) => setMessage(data.message),
-                              setLoading(true)
+                              (data) => (
+                                setMessage(data.message),
+                                setLoading(true),
+                                setUserPoints(userPoints - producto.cost),
+                                setError(data.error)
+                              )
                             )
                             .then(() => setLoading(false));
                         } catch (error) {
-                          setMessage(error);
+                          setError(error);
                         }
                       }}
                     >
@@ -60,7 +73,7 @@ export const ModalRedeem = ({ isOpen, hide }) => {
                         message ? "text-success mt-3" : "text-danger mt-3"
                       }
                     >
-                      {message}
+                      {message ? message : error}
                     </p>
                   )}
                 </div>

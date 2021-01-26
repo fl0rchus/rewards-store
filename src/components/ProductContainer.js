@@ -3,13 +3,13 @@ import { urlProducts, headers } from "../helpers/variables";
 import { Product } from "./Product";
 import PaginationComponent from "./PaginationComponent";
 import { userContext } from "../App";
+import Filter from "./Filter";
 
 export default function ProductContainer() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(16);
-  const { setIdProduct } = useContext(userContext);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -24,8 +24,6 @@ export default function ProductContainer() {
 
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  //Id
 
   //Current product
   const indexOfLastProduct = currentPage * itemsPerPage;
