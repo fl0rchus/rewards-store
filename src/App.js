@@ -9,7 +9,8 @@ export const userContext = createContext();
 function App() {
   const [userName, setUserName] = useState("");
   const [userPoints, setUserPoints] = useState("");
-  const [categories, setCategories] = useState([]);
+  const [productsList, setProductsList] = useState([]);
+  const [category, setCategory] = useState({ category: "" });
 
   return (
     <userContext.Provider
@@ -18,8 +19,10 @@ function App() {
         setUserName,
         userPoints,
         setUserPoints,
-        categories,
-        setCategories,
+        productsList,
+        setProductsList,
+        category,
+        setCategory,
       }}
     >
       <Router>
