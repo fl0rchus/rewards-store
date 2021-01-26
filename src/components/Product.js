@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import postRedeem from "../helpers/postRedeem";
 import { ModalRedeem } from "./modals/ModalRedeem";
 import useModal from "../hooks/useModal";
 import { userContext } from "../App";
@@ -8,7 +7,7 @@ import { Spinner } from "./Spinner";
 export const Product = ({ data, loading }) => {
   const [message, setMessage] = useState("");
   const { isOpen, toggle } = useModal();
-  const { userPoints, setUserPoints } = useContext(userContext);
+  const { userPoints } = useContext(userContext);
   const [id, setId] = useState("");
   const [producto, setProducto] = useState([]);
 

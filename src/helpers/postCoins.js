@@ -7,9 +7,7 @@ async function postCoins(amount) {
       headers,
       body: JSON.stringify({ amount: amount }),
     });
-    console.log(response, amount);
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.log(error);

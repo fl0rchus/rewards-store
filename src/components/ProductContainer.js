@@ -42,9 +42,6 @@ export default function ProductContainer() {
     indexOfFirstProduct,
     indexOfLastProduct
   );
-  const cards = filteredProducts.map((item, index) => {
-    return <Product data={currentProducts} loading={loading} key={index} />;
-  });
 
   return (
     <div className="container">
