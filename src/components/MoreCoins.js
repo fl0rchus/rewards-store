@@ -23,6 +23,7 @@ export default function MoreCoins() {
               .then(() => setLoading(false))
           }
           className="btn btn-warning"
+          id="btn-coins"
         >
           1000
         </button>
@@ -39,6 +40,7 @@ export default function MoreCoins() {
               .then(() => setLoading(false))
           }
           className="btn btn-warning"
+          id="btn-coins"
         >
           5000
         </button>
@@ -55,6 +57,7 @@ export default function MoreCoins() {
               .then(() => setLoading(false))
           }
           className="btn btn-warning"
+          id="btn-coins"
         >
           7500
         </button>

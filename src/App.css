@@ -25,22 +25,13 @@ p {
   font-weight: 500;
   margin: 0 20px;
 }
-.btn:hover {
+#btn-coins:hover {
   color: #ffa900;
   border: 1px solid #ffa900;
   background-color: #ffffff;
 }
 .modal-body {
   padding: 2.5rem;
-}
-.btn-success {
-  background-color: #b23cfd;
-  border-color: #b23cfd;
-}
-.btn-success:hover {
-  background-color: #8f2fca;
-  border-color: #8f2fca;
-  color: #ffffff;
 }
 /*HEADER TITLE*/
 .jumbotron {
@@ -73,19 +64,17 @@ p {
 .btn-card {
   background-color: #3d348b;
   margin: 1em auto 0;
-  /* width: 50%; */
 }
-.btn-card:hover {
-  background: #ffffff;
+#btn-redeem:hover {
+  background: #3d348b;
   border: 1px solid #3d348b;
-  color: #3d348b;
+  color: #ffffff;
+}
+.btn-card:disabled {
+  background-color: #7e7f83;
 }
 .cards-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 15px;
-  padding: 50px 50px 30px;
-  justify-content: center;
+  padding: 20px 20px 30px;
 }
 .card-title {
   font-size: 20px;

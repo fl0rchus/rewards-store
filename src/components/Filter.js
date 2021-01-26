@@ -2,9 +2,7 @@ import React, { useContext } from "react";
 import { userContext } from "../App";
 
 const Filter = () => {
-  const { productsList, category, setCategory } = useContext(userContext);
-
-  console.log(productsList);
+  const { productsList, setCategory } = useContext(userContext);
 
   return (
     <>
@@ -17,7 +15,6 @@ const Filter = () => {
             value={productsList.category}
             onChange={(e) => {
               const value = e.target.value;
-              console.log(value);
               setCategory({ ...productsList, [e.target.name]: value });
             }}
           >

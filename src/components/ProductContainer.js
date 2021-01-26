@@ -29,10 +29,6 @@ export default function ProductContainer() {
   //Current product
   const indexOfLastProduct = currentPage * itemsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
-  const currentProducts = products.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
 
   let filteredProducts = [];
 
@@ -42,22 +38,34 @@ export default function ProductContainer() {
     }
   });
 
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
   const cards = filteredProducts.map((item, index) => {
     return <Product data={currentProducts} loading={loading} key={index} />;
   });
 
   return (
-    <>
-      <div className="container">
-        {<Product data={currentProducts} loading={loading} />}
-        {/* {filteredProducts.length !== 0 ? cards : null} */}
-        <hr />
+    <div className="container">
+      <div
+        className="container"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4,1fr)",
+          justifyContent: "center",
+        }}
+      >
+        {currentProducts.map((item, index) => {
+          return <Product data={item} key={index} loading={loading} />;
+        })}
       </div>
+      <hr />
       <PaginationComponent
-        totalHistory={productsList.length}
+        totalHistory={filteredProducts.length}
         itemsPerPage={itemsPerPage}
         paginate={paginate}
       />
-    </>
+    </div>
   );
 }
