@@ -6,7 +6,7 @@ import HistoryContainer from "../components/HistoryContainer";
 function Header() {
   return (
     <div className="nav d-flex justify-content-around navbar">
-      <Link to="/" style={{ color: "#2a2a2a" }}>
+      <Link to="/rewards-store" style={{ color: "#2a2a2a" }}>
         <div>
           <i
             class="fas fa-home"

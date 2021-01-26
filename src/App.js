@@ -25,9 +25,9 @@ function App() {
         setCategory,
       }}
     >
-      <Router>
-        <History path="/redeem-history" />
-        <Home path="/" />
+      <Router basename={process.env.PUBLIC_URL}>
+        <History path="/rewards-store/redeem-history" />
+        <Home exact path="/rewards-store" />
       </Router>
     </userContext.Provider>
   );
