@@ -62,7 +62,7 @@ function Header() {
             Add more coins
           </DivActions>
           <ModalCoins isOpen={isOpen} hide={toggle} />
-          <Link to="/rewards-store/redeem-history" style={{ color: "#2a2a2a" }}>
+          <Link to="/redeem-history" style={{ color: "#2a2a2a" }}>
             <DivActions>
               <i
                 class="fas fa-history history"

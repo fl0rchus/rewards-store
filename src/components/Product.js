@@ -32,7 +32,6 @@ export const Product = ({ data, loading }) => {
             onClick={() => {
               setId(data._id);
               setProducto(data);
-              console.log(data);
               toggle();
             }}
             id="btn-redeem"

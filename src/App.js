@@ -26,7 +26,7 @@ function App() {
       }}
     >
       <Router>
-        <History path="/rewards-store/redeem-history" />
+        <History exact path="/redeem-history" />
         <Home exact path="/rewards-store" />
       </Router>
     </userContext.Provider>
