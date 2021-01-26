@@ -25,7 +25,7 @@ function App() {
         setCategory,
       }}
     >
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <History path="/rewards-store/redeem-history" />
         <Home exact path="/rewards-store" />
       </Router>
