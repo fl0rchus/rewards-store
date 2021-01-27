@@ -46,9 +46,9 @@ export default function ProductContainer() {
   if (filteredProducts.length && currentPage > MAX_PAGE) paginate(MAX_PAGE);
 
   return (
-    <div className="container">
+    <div className="container animate__animated animate__backInUp">
       <div
-        className="container"
+        className="container "
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(4,1fr)",
