@@ -56,7 +56,7 @@ function Header() {
         >
           <DivActions onClick={toggle}>
             <i
-              class="fas fa-plus-circle coin"
+              className="fas fa-plus-circle coin"
               style={{ color: "#ffcf00", marginRight: 5 }}
             ></i>
             Add more coins
@@ -65,7 +65,7 @@ function Header() {
           <Link to="/redeem-history" style={{ color: "#2a2a2a" }}>
             <DivActions>
               <i
-                class="fas fa-history history"
+                className="fas fa-history history"
                 style={{ color: "#ff8800", marginRight: 5 }}
               ></i>
               Redeem history

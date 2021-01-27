@@ -17,17 +17,19 @@ export const Product = ({ data, loading }) => {
 
   return (
     <div className="cards-container">
-      <div class="card" style={{ width: "18rem" }}>
-        <img class="card-img-top" src={data.img.hdUrl} alt={data.name} />
-        <div class="card-body">
-          <h5 class="card-title">{data.name}</h5>
-          <h6 class="card-subtitle mb-2 font-weight-light">{data.category}</h6>
-          <p class="card-text">
+      <div className="card" style={{ width: "18rem" }}>
+        <img className="card-img-top" src={data.img.hdUrl} alt={data.name} />
+        <div className="card-body">
+          <h5 className="card-title">{data.name}</h5>
+          <h6 className="card-subtitle mb-2 font-weight-light">
+            {data.category}
+          </h6>
+          <p className="card-text">
             {data.cost}{" "}
-            <i class="fas fa-coins" style={{ color: "#ffa900" }}></i>
+            <i className="fas fa-coins" style={{ color: "#ffa900" }}></i>
           </p>
           <button
-            class="btn btn-card"
+            className="btn btn-card"
             type="button"
             onClick={() => {
               setId(data._id);
@@ -35,9 +37,11 @@ export const Product = ({ data, loading }) => {
               toggle();
             }}
             id="btn-redeem"
-            disabled={data.cost >= userPoints}
+            disabled={data.cost > userPoints}
           >
-            {data.cost <= userPoints ? "Redeem Now" : `You need ${data.cost} `}
+            {data.cost >= userPoints
+              ? `You need ${data.cost - userPoints} points`
+              : "Redeem Now"}
           </button>
         </div>
         <ModalRedeem

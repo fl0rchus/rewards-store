@@ -23,9 +23,6 @@ export default function ProductContainer() {
     fetchProducts();
   }, []);
 
-  //Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   //Current product
   const indexOfLastProduct = currentPage * itemsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
@@ -42,6 +39,11 @@ export default function ProductContainer() {
     indexOfFirstProduct,
     indexOfLastProduct
   );
+  //Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const MAX_PAGE = Math.ceil(filteredProducts.length / itemsPerPage);
+  if (filteredProducts.length && currentPage > MAX_PAGE) paginate(MAX_PAGE);
 
   return (
     <div className="container">
@@ -54,7 +56,9 @@ export default function ProductContainer() {
         }}
       >
         {currentProducts.map((item, index) => {
-          return <Product data={item} key={index} loading={loading} />;
+          return (
+            <Product data={item} key={`${item}-${index}`} loading={loading} />
+          );
         })}
       </div>
       <hr />

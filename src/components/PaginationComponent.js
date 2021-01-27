@@ -11,7 +11,7 @@ const PaginationComponent = ({ itemsPerPage, totalHistory, paginate }) => {
       <ul className="pagination d-flex flex-wrap justify-content-center">
         {pageNumber.map((number) => {
           return (
-            <li key="number" className="page-item mb-1 mr-1">
+            <li key={number} className="page-item mb-1 mr-1">
               <button
                 type="button"
                 className="page-link bg-light text-dark font-weight-bold"

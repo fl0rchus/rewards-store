@@ -1,9 +1,8 @@
-import React, { useState, useContext, useEffect, useCallback } from "react";
+import React, { useState, useContext } from "react";
 import { createPortal } from "react-dom";
 import postRedeem from "../../helpers/postRedeem";
 import { Spinner } from "../Spinner";
 import { userContext } from "../../App";
-import getUser from "../../helpers/getUser";
 
 const element = document.getElementById("modal-addCoins");
 
@@ -45,7 +44,9 @@ export const ModalRedeem = ({ isOpen, hide, id, producto }) => {
                               (data) => (
                                 setMessage(data.message),
                                 setLoading(true),
-                                setUserPoints(userPoints - producto.cost),
+                                userPoints < producto.cost
+                                  ? setUserPoints(userPoints)
+                                  : setUserPoints(userPoints - producto.cost),
                                 setError(data.error)
                               )
                             )
